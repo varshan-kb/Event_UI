@@ -1,0 +1,52 @@
+<mat-card class="head">
+    Attendence
+</mat-card>
+
+<form [formGroup]="AttendenceForm">
+    <div style="margin-top: 2%;">
+        <div class="col-md-6">
+            <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>Invitation Name</mat-label>
+                <mat-select formControlName="InvitationID">
+                    <mat-option *ngFor="let d of data" [value]="d.invitationID">{{d.eventName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6 ">
+            <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>Name</mat-label>
+                <input formControlName="Name" matInput placeholder="">
+                <mat-error *ngIf="checkError('Name','required')">Name is required</mat-error>
+                <mat-error
+                    *ngIf="AttendenceForm.controls['Name'].hasError('invalidName') || AttendenceForm.controls['Name'].hasError('pattern') ">
+                    Please enter Alpha Numerical characters only minimum:1/Maximum:5
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="example-full-width" appearance="legacy">
+                <mat-label>Email</mat-label>
+                <input formControlName="Email" matInput placeholder="">
+                <mat-error *ngIf="checkError('Email','required')">Email is required</mat-error>
+                <mat-error
+                    *ngIf="AttendenceForm.controls['Email'].hasError('invalidName') || AttendenceForm.controls['Email'].hasError('pattern') ">
+                    Please enter a valid email address
+                </mat-error>
+                
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-label>Status</mat-label>
+            <mat-radio-group formControlName="Status" class="example-radio-group">
+                <mat-radio-button value="Attending" style="margin-top: 0px;margin-left: 50px;" >Attending</mat-radio-button>
+                <mat-radio-button value="Maybe" style="margin-top: 10px;margin-left: 50px;">May be</mat-radio-button>
+                <mat-radio-button value="NotAttending" style="margin-top: 10px;margin-left: 50px;">Not attending</mat-radio-button>
+            </mat-radio-group>
+        </div>
+    </div>
+
+</form>
+<div class="box" align="end">
+    <button (click)="Attendence()" mat-raised-button color="primary" [disabled]="AttendenceForm.invalid" cdkFocusInitial>Add
+        Attendence</button>
+</div>
