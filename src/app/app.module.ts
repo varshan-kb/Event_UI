@@ -39,6 +39,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { HttpClientModule } from '@angular/common/http';
 import { MatPaginatorModule } from '@angular/material/paginator';
+//import { NgChartsModule } from 'ng2-charts';
+
+
+
 
 
 @NgModule({
@@ -58,15 +62,16 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatTableModule,
     MatCardModule,
     ReactiveFormsModule, FormsModule,
-    MatFormFieldModule, 
+    MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
     MatButtonModule,
     MatDialogModule,
     MatRadioModule,
     HttpClientModule,
-    MatPaginatorModule
-    
+    MatPaginatorModule,
+    //NgChartsModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
